@@ -72,7 +72,7 @@ namespace LTI_Hesap_Makinasi
             Console.WriteLine("📊 FONKSİYON ANALİZİ");
             Console.WriteLine("═══════════════════════════════════════════════════════════════════════");
 
-            // Fonksiyon girişi
+           
             Console.WriteLine("\n📝 Fonksiyon örnekleri:");
             Console.WriteLine("   • Polinom: x^2 + 3*x + 2");
             Console.WriteLine("   • Trigonometrik: Sin(x), Cos(x), Tan(x)");
@@ -89,7 +89,7 @@ namespace LTI_Hesap_Makinasi
                 return;
             }
 
-            // Fonksiyon geçerliliğini test et
+            
             if (!FonksiyonGecerliMi(func))
             {
                 HataMesaji("Geçersiz fonksiyon! Yardım menüsünden örnekleri inceleyebilirsiniz.");
@@ -205,7 +205,7 @@ namespace LTI_Hesap_Makinasi
                         double integral = Hesaplayici.Integral(func, a, b);
                         BasariMesaji($"∫[{a} → {b}] f(x)dx = {integral:F6}");
 
-                        // Geometrik yorum
+                        
                         if (integral > 0)
                             Console.WriteLine("📊 Pozitif alan (x-ekseni üzerinde)");
                         else if (integral < 0)
@@ -276,7 +276,7 @@ namespace LTI_Hesap_Makinasi
                 Console.WriteLine($"\n📊 Fonksiyon: f(x) = {func}");
                 Console.WriteLine(new string('─', 70));
 
-                // Tablo değerleri
+                
                 Console.WriteLine("📋 Fonksiyon Değerleri Tablosu:");
                 Console.WriteLine("┌──────────┬──────────────┬──────────────┐");
                 Console.WriteLine("│    x     │     f(x)     │     f'(x)    │");
@@ -493,11 +493,11 @@ namespace LTI_Hesap_Makinasi
 
         public static double Integral(string func, double a, double b)
         {
-            int n = 50000; // Daha yüksek hassasiyet
+            int n = 50000; 
             double h = (b - a) / n;
             double toplam = 0;
 
-            // Simpson kuralı ile daha doğru hesaplama
+            
             for (int i = 0; i < n; i++)
             {
                 double x0 = a + i * h;
@@ -514,7 +514,7 @@ namespace LTI_Hesap_Makinasi
                 }
                 catch
                 {
-                    // Tanımsız noktalarda trapez kuralına geç
+                    
                     try
                     {
                         double f0 = Evaluate(func, x0);
@@ -523,7 +523,7 @@ namespace LTI_Hesap_Makinasi
                     }
                     catch
                     {
-                        // Bu aralığı atla
+                        
                     }
                 }
             }
